@@ -74,6 +74,7 @@
             this.comboBoxForm.Size = new System.Drawing.Size(207, 48);
             this.comboBoxForm.TabIndex = 20;
             this.comboBoxForm.Tag = "Form";
+            this.comboBoxForm.SelectedIndexChanged += new System.EventHandler(this.comboBoxForm_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -94,6 +95,7 @@
             this.comboBoxFarbe.Size = new System.Drawing.Size(207, 48);
             this.comboBoxFarbe.TabIndex = 18;
             this.comboBoxFarbe.Tag = "Farbe";
+            this.comboBoxFarbe.SelectedIndexChanged += new System.EventHandler(this.comboBoxFarbe_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -122,6 +124,7 @@
             this.textBoxAuftragsNr.Name = "textBoxAuftragsNr";
             this.textBoxAuftragsNr.Size = new System.Drawing.Size(207, 46);
             this.textBoxAuftragsNr.TabIndex = 15;
+            this.textBoxAuftragsNr.TextChanged += new System.EventHandler(this.textBoxAuftragsNr_TextChanged);
             // 
             // label6
             // 
@@ -140,6 +143,7 @@
             this.textBoxAfutragsEnde.Name = "textBoxAfutragsEnde";
             this.textBoxAfutragsEnde.Size = new System.Drawing.Size(207, 46);
             this.textBoxAfutragsEnde.TabIndex = 13;
+            this.textBoxAfutragsEnde.TextChanged += new System.EventHandler(this.textBoxAfutragsEnde_TextChanged);
             // 
             // button1
             // 
@@ -183,6 +187,7 @@
             this.comboBoxMenge.Size = new System.Drawing.Size(207, 48);
             this.comboBoxMenge.TabIndex = 8;
             this.comboBoxMenge.Tag = "Menge";
+            this.comboBoxMenge.SelectedIndexChanged += new System.EventHandler(this.comboBoxMenge_SelectedIndexChanged);
             // 
             // label1
             // 

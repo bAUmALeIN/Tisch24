@@ -28,6 +28,22 @@ namespace Tischprojekt.Data.obj.Userctrl
             InitializeComponent();
             this.Load += AuftragAnnahme_Load;
         }
+
+        public static AuftragAnnahme GetInstance()
+        {
+            if (instance == null)
+            {
+                lock (lockObj)
+                {
+                    if (instance == null)
+                    {
+                        instance = new AuftragAnnahme();
+                    }
+                }
+            }
+
+            return instance;
+        }
         public void FillControls()
 
         {
@@ -89,22 +105,32 @@ namespace Tischprojekt.Data.obj.Userctrl
 
         }
 
-        public static AuftragAnnahme GetInstance()
+        private void CheckInput()
         {
-            if (instance == null)
+            bool checkText = true;
+            if (comboBoxFarbe.SelectedItem == null)
             {
-                lock (lockObj)
-                {
-                    if (instance == null)
-                    {
-                        instance = new AuftragAnnahme();
-                    }
-                }
+                checkText = false;
             }
+            if (comboBoxMenge.SelectedItem == null)
+            {
+                checkText = false;
+            }
+            if (comboBoxForm.SelectedItem == null)
+            {
+                checkText = false;
+            }
+            if (String.IsNullOrEmpty(textBoxAfutragsEnde.Text))
+            {
+                checkText = false;
+            }
+            if (String.IsNullOrEmpty(textBoxAfutragsEnde.Text))
+            {
+                checkText = false;
+            }
+            buttonAuftragAnnehmen.Enabled = checkText;
 
-            return instance;
         }
-
         private void AuftragAnnahme_Load(object sender, EventArgs e)
         {
 
@@ -162,7 +188,34 @@ namespace Tischprojekt.Data.obj.Userctrl
             return true;
 
         }
-        
 
+
+
+        // INPUT EVENTS
+
+        private void comboBoxMenge_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckInput();
+        }
+
+        private void comboBoxFarbe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckInput();
+        }
+
+        private void comboBoxForm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckInput();
+        }
+
+        private void textBoxAfutragsEnde_TextChanged(object sender, EventArgs e)
+        {
+            CheckInput();
+        }
+
+        private void textBoxAuftragsNr_TextChanged(object sender, EventArgs e)
+        {
+            CheckInput();
+        }
     }
 }
