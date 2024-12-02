@@ -159,7 +159,7 @@ namespace Tischprojekt.Data.obj.Userctrl
                 }
 
 
-                Dashboard.GetInstance().SetDGVActiveOrdersDataSource();
+                Dashboard.GetInstance().SetDGVAcceptedOrdersDataSource();
                 textBoxAfutragsEnde.Text = "";
                 textBoxAuftragsNr.Text = "";
                 comboBoxFarbe.SelectedIndex = -1;

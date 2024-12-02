@@ -25,9 +25,9 @@ namespace Tischprojekt.Data.obj.Userctrl
             InitializeComponent();
 
         }
-        public void SetDGVActiveOrdersDataSource()
+        public void SetDGVAcceptedOrdersDataSource()
         {
-            dataGridViewAktiveAuftraege.DataSource = ConnectionManager.GetInstance().ExecuteQuery(SQLquerys.getAllAcceptedOrders);
+            dataGridViewAngenommeAuftraege.DataSource = ConnectionManager.GetInstance().ExecuteQuery(SQLquerys.getAllAcceptedOrders);
 
         }
 
@@ -97,7 +97,7 @@ namespace Tischprojekt.Data.obj.Userctrl
             }
             else
             {
-                dataGridViewAktiveAuftraege.DataSource = ConnectionManager.GetInstance().ExecuteQuery(SQLquerys.getAllAcceptedOrders);
+                dataGridViewAngenommeAuftraege.DataSource = ConnectionManager.GetInstance().ExecuteQuery(SQLquerys.getAllAcceptedOrders);
 
             }
         }

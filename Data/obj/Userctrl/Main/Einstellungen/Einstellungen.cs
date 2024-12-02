@@ -79,7 +79,7 @@ namespace Tischprojekt.Data.obj.Userctrl.Main.Einstellungen
                     db.SetLabelNoDbConnection(false);
                     db.SetLabelDbConnectionOK(true);
                     MainForm.UpdateSettingsControls();
-                    Dashboard.GetInstance().SetDGVActiveOrdersDataSource();
+                    Dashboard.GetInstance().SetDGVAcceptedOrdersDataSource();
                 }
             }
             else

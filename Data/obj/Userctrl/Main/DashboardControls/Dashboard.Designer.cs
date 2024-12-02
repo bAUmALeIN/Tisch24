@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridViewAktiveAuftraege = new System.Windows.Forms.DataGridView();
@@ -36,7 +38,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.btnRetoure = new System.Windows.Forms.Button();
             this.buttonAuftragsAbschluss = new System.Windows.Forms.Button();
             this.buttonAutragsannahme = new System.Windows.Forms.Button();
@@ -50,14 +51,15 @@
             this.label12 = new System.Windows.Forms.Label();
             this.labelNoDbConnection = new System.Windows.Forms.Label();
             this.labelDBConnectionOK = new System.Windows.Forms.Label();
+            this.dataGridViewAngenommeAuftraege = new System.Windows.Forms.DataGridView();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAktiveAuftraege)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAngenommeAuftraege)).BeginInit();
             this.SuspendLayout();
             // 
             // panel6
@@ -118,9 +120,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dataGridViewAngenommeAuftraege);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.dataGridView3);
             this.panel1.Location = new System.Drawing.Point(13, 172);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(842, 270);
@@ -147,14 +149,6 @@
             this.label7.Size = new System.Drawing.Size(257, 30);
             this.label7.TabIndex = 9;
             this.label7.Text = "Angenommene Aufträge";
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(3, 41);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(836, 226);
-            this.dataGridView3.TabIndex = 0;
             // 
             // btnRetoure
             // 
@@ -297,6 +291,37 @@
             this.labelDBConnectionOK.Text = "Datenbank ok!";
             this.labelDBConnectionOK.Visible = false;
             // 
+            // dataGridViewAngenommeAuftraege
+            // 
+            this.dataGridViewAngenommeAuftraege.AllowUserToAddRows = false;
+            this.dataGridViewAngenommeAuftraege.AllowUserToDeleteRows = false;
+            this.dataGridViewAngenommeAuftraege.AllowUserToResizeColumns = false;
+            this.dataGridViewAngenommeAuftraege.AllowUserToResizeRows = false;
+            this.dataGridViewAngenommeAuftraege.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewAngenommeAuftraege.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAngenommeAuftraege.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewAngenommeAuftraege.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewAngenommeAuftraege.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewAngenommeAuftraege.Location = new System.Drawing.Point(3, 41);
+            this.dataGridViewAngenommeAuftraege.Name = "dataGridViewAngenommeAuftraege";
+            this.dataGridViewAngenommeAuftraege.ReadOnly = true;
+            this.dataGridViewAngenommeAuftraege.Size = new System.Drawing.Size(836, 226);
+            this.dataGridViewAngenommeAuftraege.TabIndex = 34;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -322,13 +347,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAktiveAuftraege)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAngenommeAuftraege)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,7 +368,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Button btnRetoure;
         private System.Windows.Forms.Button buttonAuftragsAbschluss;
         private System.Windows.Forms.Button buttonAutragsannahme;
@@ -357,5 +381,6 @@
         private System.Windows.Forms.Label label12;
         public System.Windows.Forms.Label labelNoDbConnection;
         public System.Windows.Forms.Label labelDBConnectionOK;
+        private System.Windows.Forms.DataGridView dataGridViewAngenommeAuftraege;
     }
 }
