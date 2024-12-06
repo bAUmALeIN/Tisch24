@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -63,7 +64,7 @@ namespace Tischprojekt.Data.obj.Userctrl
             if(comboBoxArtikel1Farbe.SelectedItem == null)
             {
                 Console.WriteLine("comboBox1 Leer");
-               
+                return;
                 
 
 
@@ -87,11 +88,28 @@ namespace Tischprojekt.Data.obj.Userctrl
                 
 
                 Console.WriteLine("comboBox2 Leer // 1 Artikel");
+                return;
             }
 
 
             // 2 Artikel ->
+            _Bestellung neueBestellung2 = new _Bestellung();
+            object ergebnis2 = ConnectionManager.GetInstance().ExecuteScalar(SQLquerys.nextFreeNumberFromBestellungen);
+            neueBestellung2.BestellNr = Convert.ToInt32(ergebnis2);
+            neueBestellung2.AddArtikel("Artikel1", comboBoxArtikel1Farbe.SelectedItem.ToString(), Convert.ToInt32(textBoxMenge1.Text));
+            neueBestellung2.AddArtikel("Artikel2", comboBoxArtikel2Farbe.SelectedItem.ToString(), Convert.ToInt32(textBoxMenge2.Text));
+            Console.WriteLine(neueBestellung2.ToString());
+            if (neueBestellung2.SaveToDatabase())
+            {
+                Dashboard.GetInstance().UpdateDGVs();
+                comboBoxArtikel1Farbe.SelectedIndex = -1;
+                comboBoxArtikel2Farbe.SelectedIndex = -1;
+            }
+            else
+            {
 
+
+            }
 
 
         }

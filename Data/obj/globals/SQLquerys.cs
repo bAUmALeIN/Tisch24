@@ -61,5 +61,7 @@ namespace Tischprojekt.Data.obj.dataObj
         /// </summary>
         public static String inertIntoBestellungen = "INSERT INTO Bestellungen (BestellNr,Farbe_1,Farbe_2,Farbe_1_menge,Farbe_2_menge) VALUES (@BestellNr,@Farbe1,@Farbe2,@Farbe1menge,@Farbe2menge)";
         public static String nextFreeNumberFromBestellungen = "SELECT COALESCE(MAX(BestellNr), 0) + 1 AS NextFreeNr FROM Bestellungen";
+        public static String selectAllBestellNr = "SELECT BestellNr From Bestellungen";
+        public static String getBestellungByBestellNr = "SELECT * FROM Bestellungen WHERE BestellNr = @BestellNr";
     }
 }

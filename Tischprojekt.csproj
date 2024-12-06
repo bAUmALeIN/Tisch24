@@ -91,45 +91,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\obj\dataObj\engine.cs" />
-    <Compile Include="Data\obj\dataObj\Globals.cs" />
-    <Compile Include="Data\obj\dataObj\SQLquerys.cs" />
-    <Compile Include="Data\obj\dataObj\_Auftrag.cs" />
-    <Compile Include="Data\obj\ObjEngine\ConnectionManager.cs" />
-    <Compile Include="Data\obj\Userctrl\Main\DashboardControls\AuftragsAbschluss.cs">
+    <Compile Include="Data\obj\Controls\cControls\cCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\obj\globals\BestellArtikel.cs" />
+    <Compile Include="Data\obj\globals\engine.cs" />
+    <Compile Include="Data\obj\globals\Globals.cs" />
+    <Compile Include="Data\obj\globals\SQLquerys.cs" />
+    <Compile Include="Data\obj\globals\_Auftrag.cs" />
+    <Compile Include="Data\obj\ConnectionManager\ConnectionManager.cs" />
+    <Compile Include="Data\obj\globals\_Bestellung.cs" />
+    <Compile Include="Data\obj\Controls\Main\DashboardControls\AuftragsAbschluss.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Data\obj\Userctrl\Main\DashboardControls\AuftragsAbschluss.Designer.cs">
+    <Compile Include="Data\obj\Controls\Main\DashboardControls\AuftragsAbschluss.Designer.cs">
       <DependentUpon>AuftragsAbschluss.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\obj\Userctrl\Main\DashboardControls\AuftragAnnahme.cs">
+    <Compile Include="Data\obj\Controls\Main\DashboardControls\AuftragAnnahme.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Data\obj\Userctrl\Main\DashboardControls\AuftragAnnahme.Designer.cs">
+    <Compile Include="Data\obj\Controls\Main\DashboardControls\AuftragAnnahme.Designer.cs">
       <DependentUpon>AuftragAnnahme.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\obj\Userctrl\Main\DashboardControls\Bestellen.cs">
+    <Compile Include="Data\obj\Controls\Main\DashboardControls\Bestellen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Data\obj\Userctrl\Main\DashboardControls\Bestellen.Designer.cs">
+    <Compile Include="Data\obj\Controls\Main\DashboardControls\Bestellen.Designer.cs">
       <DependentUpon>Bestellen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\obj\Userctrl\Main\DashboardControls\Dashboard.cs">
+    <Compile Include="Data\obj\Controls\Main\DashboardControls\Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Data\obj\Userctrl\Main\DashboardControls\Dashboard.Designer.cs">
+    <Compile Include="Data\obj\Controls\Main\DashboardControls\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\obj\Userctrl\Main\DashboardControls\Wareneingang.cs">
+    <Compile Include="Data\obj\Controls\Main\DashboardControls\Wareneingang.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Data\obj\Userctrl\Main\DashboardControls\Wareneingang.Designer.cs">
+    <Compile Include="Data\obj\Controls\Main\DashboardControls\Wareneingang.Designer.cs">
       <DependentUpon>Wareneingang.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\obj\Userctrl\Main\Einstellungen\Einstellungen.cs">
+    <Compile Include="Data\obj\Controls\Main\Einstellungen\Einstellungen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Data\obj\Userctrl\Main\Einstellungen\Einstellungen.Designer.cs">
+    <Compile Include="Data\obj\Controls\Main\Einstellungen\Einstellungen.Designer.cs">
       <DependentUpon>Einstellungen.cs</DependentUpon>
     </Compile>
     <Compile Include="MainFom.cs">
@@ -140,22 +145,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Data\obj\Userctrl\Main\DashboardControls\AuftragsAbschluss.resx">
+    <EmbeddedResource Include="Data\obj\Controls\Main\DashboardControls\AuftragsAbschluss.resx">
       <DependentUpon>AuftragsAbschluss.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Data\obj\Userctrl\Main\DashboardControls\AuftragAnnahme.resx">
+    <EmbeddedResource Include="Data\obj\Controls\Main\DashboardControls\AuftragAnnahme.resx">
       <DependentUpon>AuftragAnnahme.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Data\obj\Userctrl\Main\DashboardControls\Bestellen.resx">
+    <EmbeddedResource Include="Data\obj\Controls\Main\DashboardControls\Bestellen.resx">
       <DependentUpon>Bestellen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Data\obj\Userctrl\Main\DashboardControls\Dashboard.resx">
+    <EmbeddedResource Include="Data\obj\Controls\Main\DashboardControls\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Data\obj\Userctrl\Main\DashboardControls\Wareneingang.resx">
+    <EmbeddedResource Include="Data\obj\Controls\Main\DashboardControls\Wareneingang.resx">
       <DependentUpon>Wareneingang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Data\obj\Userctrl\Main\Einstellungen\Einstellungen.resx">
+    <EmbeddedResource Include="Data\obj\Controls\Main\Einstellungen\Einstellungen.resx">
       <DependentUpon>Einstellungen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFom.resx">

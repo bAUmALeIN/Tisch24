@@ -415,14 +415,10 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dataGridViewAktiveAuftraege;
-        private System.Windows.Forms.Button buttonBestellen;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnRetoure;
-        private System.Windows.Forms.Button buttonAuftragsAbschluss;
-        private System.Windows.Forms.Button buttonAutragsannahme;
-        private System.Windows.Forms.Button buttonWareneingang;
         private System.Windows.Forms.Panel panelContainer;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label15;
@@ -433,5 +429,9 @@
         private System.Windows.Forms.DataGridView dataGridViewAngenommeAuftraege;
         private System.Windows.Forms.DataGridView dataGridViewLager;
         private System.Windows.Forms.DataGridView dataGridViewAktiveBestellungen;
+        public System.Windows.Forms.Button buttonBestellen;
+        public System.Windows.Forms.Button buttonAuftragsAbschluss;
+        public System.Windows.Forms.Button buttonAutragsannahme;
+        public System.Windows.Forms.Button buttonWareneingang;
     }
 }

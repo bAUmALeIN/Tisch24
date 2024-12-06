@@ -41,14 +41,22 @@ namespace Tischprojekt
             if (Properties.Settings.Default.DBpath.Length == 0)
             {
                 Dashboard.GetInstance().labelNoDbConnection.Visible = true;
+                Globals.hasConnection = false;
 
             }
             else
             {
                 
-                connectionManager = ConnectionManager.GetInstance();
-                connectionManager.SetConnectionString(Properties.Settings.Default.DBpath);
+                ConnectionManager.GetInstance().SetConnectionString(Properties.Settings.Default.DBpath);
+                ConnectionManager.GetInstance().ExecuteNonQuery(SQLquerys.deleteFromLagerWhereMenge0); // DEBUG
                 Dashboard.GetInstance().labelDBConnectionOK.Visible = true;
+                Dashboard.GetInstance().UpdateDGVs();
+
+
+                
+
+                Globals.hasConnection = true;
+                Console.WriteLine("hasConnection = true");
             }
         }
 

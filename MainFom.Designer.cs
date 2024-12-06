@@ -35,9 +35,9 @@ namespace Tischprojekt
             this.buttonDashboard = new System.Windows.Forms.Button();
             this.panelMainContainer = new System.Windows.Forms.Panel();
             this.panelProgBar = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.buttonMinimize = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panelProgBar.SuspendLayout();
             this.SuspendLayout();
@@ -84,7 +84,7 @@ namespace Tischprojekt
             // 
             this.panelMainContainer.Location = new System.Drawing.Point(0, 23);
             this.panelMainContainer.Name = "panelMainContainer";
-            this.panelMainContainer.Size = new System.Drawing.Size(1722, 1018);
+            this.panelMainContainer.Size = new System.Drawing.Size(1722, 1011);
             this.panelMainContainer.TabIndex = 23;
             this.panelMainContainer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form_MouseDown);
             this.panelMainContainer.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form_MouseMove);
@@ -99,22 +99,11 @@ namespace Tischprojekt
             this.panelProgBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelProgBar.Location = new System.Drawing.Point(0, 0);
             this.panelProgBar.Name = "panelProgBar";
-            this.panelProgBar.Size = new System.Drawing.Size(1904, 24);
+            this.panelProgBar.Size = new System.Drawing.Size(1900, 24);
             this.panelProgBar.TabIndex = 0;
             this.panelProgBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form_MouseDown);
             this.panelProgBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form_MouseMove);
             this.panelProgBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form_MouseUp);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label7.Location = new System.Drawing.Point(826, 2);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 17);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Tisch24.de";
             // 
             // buttonMinimize
             // 
@@ -136,12 +125,23 @@ namespace Tischprojekt
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label7.Location = new System.Drawing.Point(826, 2);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(73, 17);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Tisch24.de";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1900, 1035);
             this.Controls.Add(this.panelProgBar);
             this.Controls.Add(this.panelMainContainer);
             this.Controls.Add(this.panel4);

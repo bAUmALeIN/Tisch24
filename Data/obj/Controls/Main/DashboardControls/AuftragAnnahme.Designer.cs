@@ -37,7 +37,7 @@
             this.textBoxAuftragsNr = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxAfutragsEnde = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAuftragAblehnen = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.buttonAuftragAnnehmen = new System.Windows.Forms.Button();
             this.comboBoxMenge = new System.Windows.Forms.ComboBox();
@@ -55,7 +55,7 @@
             this.panelAuftragAnnehmen.Controls.Add(this.textBoxAuftragsNr);
             this.panelAuftragAnnehmen.Controls.Add(this.label6);
             this.panelAuftragAnnehmen.Controls.Add(this.textBoxAfutragsEnde);
-            this.panelAuftragAnnehmen.Controls.Add(this.button1);
+            this.panelAuftragAnnehmen.Controls.Add(this.buttonAuftragAblehnen);
             this.panelAuftragAnnehmen.Controls.Add(this.label14);
             this.panelAuftragAnnehmen.Controls.Add(this.buttonAuftragAnnehmen);
             this.panelAuftragAnnehmen.Controls.Add(this.comboBoxMenge);
@@ -147,16 +147,17 @@
             this.textBoxAfutragsEnde.TabIndex = 13;
             this.textBoxAfutragsEnde.TextChanged += new System.EventHandler(this.textBoxAfutragsEnde_TextChanged);
             // 
-            // button1
+            // buttonAuftragAblehnen
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(525, 377);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(297, 112);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Ablehnen";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonAuftragAblehnen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAuftragAblehnen.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAuftragAblehnen.Location = new System.Drawing.Point(525, 377);
+            this.buttonAuftragAblehnen.Name = "buttonAuftragAblehnen";
+            this.buttonAuftragAblehnen.Size = new System.Drawing.Size(297, 112);
+            this.buttonAuftragAblehnen.TabIndex = 12;
+            this.buttonAuftragAblehnen.Text = "Ablehnen";
+            this.buttonAuftragAblehnen.UseVisualStyleBackColor = true;
+            this.buttonAuftragAblehnen.Click += new System.EventHandler(this.buttonAuftragAblehnen_Click);
             // 
             // label14
             // 
@@ -230,6 +231,6 @@
         private System.Windows.Forms.TextBox textBoxAuftragsNr;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxAfutragsEnde;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAuftragAblehnen;
     }
 }

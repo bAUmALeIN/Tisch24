@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tischprojekt.Data.obj.dataObj;
 using System.Data.SQLite;
+using Tischprojekt.Data;
+using System.Data.SqlClient;
+using Tischprojekt.Data.obj.globals;
 
 namespace Tischprojekt.Data.obj.Userctrl
 {
@@ -91,6 +94,19 @@ namespace Tischprojekt.Data.obj.Userctrl
 
                                 }
                                 break;
+                            case "BestellNr":
+                                dt = ConnectionManager.GetInstance().ExecuteQuery(SQLquerys.selectAllBestellNr);
+                                if (dt != null)
+                                {
+                                    comboBox.Items.Clear();
+                                    foreach (DataRow dr in dt.Rows)
+                                    {
+                                        comboBox.Items.Add(dr["BestellNr"].ToString());
+
+                                    }
+
+                                }
+                                break;
 
                             default:
                                 break;
@@ -123,20 +139,7 @@ namespace Tischprojekt.Data.obj.Userctrl
         }
 
 
-        private void checkBoxArtikel2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxArtikel2.Checked)
-            {
-                comboBoxArtikel2Farbe.Enabled = true;
-                comboBoxArtikel2Menge.Enabled = true;
 
-            }
-            else
-            {
-                comboBoxArtikel2Farbe.Enabled = false;
-                comboBoxArtikel2Menge.Enabled = false;
-            }
-        }
 
         private void comboBoxArtikel2Farbe_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -160,16 +163,28 @@ namespace Tischprojekt.Data.obj.Userctrl
 
         private void buttonBUCHEN_Click(object sender, EventArgs e)
         {
+            if (comboBoxBestellNr.SelectedIndex == -1 || comboBoxBestellNr.SelectedItem.ToString() == ""){
+                return;
+
+            }
+            _Bestellung bestellung = _Bestellung.GetBestellungByBestellNr(Convert.ToInt32(comboBoxBestellNr.SelectedItem.ToString()));
+            bestellung.SaveToLagerAndDeleteBestellung();
+            Dashboard.GetInstance().UpdateDGVs();
+            comboBoxBestellNr.SelectedIndex= -1;
+            textBoxFarbe1.Text = "";
+            textBoxFarbe2.Text = "";
+            Dashboard.GetInstance().buttonWareneingang.PerformClick();
+            /*
             if (checkBoxArtikel2.Checked)
             {
                 // 2 Artikel
-                if (comboBoxArtikel2Farbe.Text == "" && comboBoxArtikel2Menge.SelectedItem == null && comboBoxArtikel1Farbe.Text == "" && comboBoxArtikel1Menge.SelectedItem == null)
+                if (comboBoxArtikel2Farbe.Text == ""  && comboBoxArtikel1Farbe.Text == "" )
                 {
                     return;
 
                 }
-                InsertWareInLager(comboBoxArtikel1Farbe.SelectedItem.ToString(), Convert.ToInt32(comboBoxArtikel1Menge.Text));
-                InsertWareInLager(comboBoxArtikel2Farbe.SelectedItem.ToString(), Convert.ToInt32(comboBoxArtikel2Menge.Text));
+                InsertWareInLager(comboBoxArtikel1Farbe.SelectedItem.ToString(), Convert.ToInt32(textBoxMenge1.Text));
+                InsertWareInLager(comboBoxArtikel2Farbe.SelectedItem.ToString(), Convert.ToInt32(textBoxMenge1.Text));
                 FillControls(1);
                 Dashboard.GetInstance().UpdateDGVs();
             }
@@ -177,17 +192,20 @@ namespace Tischprojekt.Data.obj.Userctrl
             {
                 Console.WriteLine("Wareineingang_ 1 Artikel");
                 // 1 Artikel
-                if (comboBoxArtikel1Farbe.Text == "" && comboBoxArtikel1Menge.SelectedItem == null)
+                if (comboBoxArtikel1Farbe.Text == "")
                 {
                     return;
 
                 }
-                InsertWareInLager(comboBoxArtikel1Farbe.SelectedItem.ToString(), Convert.ToInt32(comboBoxArtikel1Menge.Text));
+                InsertWareInLager(comboBoxArtikel1Farbe.SelectedItem.ToString(), Convert.ToInt32(textBoxMenge1.Text));
                 Dashboard.GetInstance().UpdateDGVs();
                 FillControls(1);
 
 
             }
+            */
+
+            
         }
 
         private void InsertWareInLager(string farbe, int menge) {
@@ -198,7 +216,7 @@ namespace Tischprojekt.Data.obj.Userctrl
                     new SQLiteParameter("@Farbe", farbe),
                     new SQLiteParameter("@Menge", menge)
                };
-            Console.WriteLine($"query Param 1: {comboBoxArtikel1Farbe.Text} | Param 2 {comboBoxArtikel1Menge.Text}");
+            Console.WriteLine($"query Param 1: {textBoxFarbe1.Text} | Param 2 {textBoxMenge1.Text}");
             if (ConnectionManager.GetInstance().ExecuteNonQuery(SQLquerys.insertIntoLager, parameters) != -1)
             {
                 Dashboard.GetInstance().UpdateDGVs();
@@ -210,6 +228,26 @@ namespace Tischprojekt.Data.obj.Userctrl
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBoxBestellNr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxBestellNr_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (comboBoxBestellNr.SelectedIndex == -1) return;
+            SQLiteParameter parameter = new SQLiteParameter("@BestellNr", Convert.ToInt32(comboBoxBestellNr.SelectedItem));
+            DataTable dt = ConnectionManager.GetInstance().ExecuteQuery(SQLquerys.getBestellungByBestellNr, parameter);
+            foreach (DataRow dr in dt.Rows)
+            {
+                textBoxFarbe1.Text = dr["Farbe_1"].ToString();
+                textBoxFarbe2.Text = dr["Farbe_2"].ToString();
+
+
+            }
+            buttonBUCHEN.Enabled = true;
         }
     }
 }
