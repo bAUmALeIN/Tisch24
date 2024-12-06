@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Data;
+using System.Data.SQLite;
+using Tischprojekt.Data;
+using Tischprojekt.Data.obj.dataObj;
 
 namespace Tischprojekt.Data.obj
 {
@@ -40,22 +44,101 @@ namespace Tischprojekt.Data.obj
             IstRetoure = false;
         }
 
-       
-        public void AuftragAbschließen()
+        public static _Auftrag GetAuftragByNr(int nr)
         {
-            if (!Abgelehnt && Angenommen)
+            var connectionManager = ConnectionManager.GetInstance();
+
+            var parameter = new SQLiteParameter("@Nr", nr);
+
+            try
             {
-                Abgeschlossen = true;
-                Console.WriteLine($"Auftrag Nr. {Nr} wurde abgeschlossen.");
+                DataTable result = connectionManager.ExecuteQuery(SQLquerys.getActiveOrderByNr, parameter);
+
+                if (result.Rows.Count == 0)
+                {
+                    Console.WriteLine($"Kein Auftrag mit der Nummer {nr} gefunden.");
+                    return null;
+                }
+
+                DataRow row = result.Rows[0];
+
+                int nummer = Convert.ToInt32(row["Nr"]);
+                DateTime beginn = DateTime.Parse(row["DatumBeginn"].ToString());
+                DateTime abgabe = DateTime.Parse(row["DatumEnde"].ToString());
+                int menge = Convert.ToInt32(row["Menge"]);
+                string form = row["Form"].ToString();
+                string farbe = row["Farbe"].ToString();
+                bool istRetoure = Convert.ToBoolean(row["IstRetoure"]);
+
+                var auftrag = new _Auftrag(nummer, beginn, abgabe, menge, form, farbe)
+                {
+                    IstRetoure = istRetoure
+                };
+
+                return auftrag;
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine($"Auftrag Nr. {Nr} kann nicht abgeschlossen werden. Überprüfe den Status.");
+                Console.WriteLine($"Fehler beim Abrufen des Auftrags: {ex.Message}");
+                return null;
             }
         }
 
-       
-        public void AuftragAblehnen()
+
+
+        public void AuftragAbschließen()
+        {
+
+
+                Abgeschlossen = true;
+                Console.WriteLine($"Auftrag Nr. {Nr} wurde abgeschlossen.");
+
+                // Datenbank aktualisieren
+                var connectionManager = ConnectionManager.GetInstance();
+
+                // SQL-Update-Abfrage, um den Auftrag als abgeschlossen zu markieren
+                string updateQuery = "UPDATE Orders SET Abgeschlossen = @Abgeschlossen WHERE Nr = @Nr";
+                string deleteQuery = "DELETE FROM ActiveOrders WHERE Nr = @Nr";
+
+                var parameters = new[]
+                {
+                    new SQLiteParameter("@Abgeschlossen", Abgeschlossen ? 1 : 0),
+                    new SQLiteParameter("@Nr", Nr)
+                };
+
+                try
+                {
+                    int rowsUpdated = connectionManager.ExecuteNonQuery(updateQuery, parameters);
+                    if (rowsUpdated > 0)
+                    {
+                        Console.WriteLine($"Auftrag Nr. {Nr} erfolgreich in Orders aktualisiert.");
+
+                        // Auftrag aus ActiveOrders löschen
+                        int rowsDeleted = connectionManager.ExecuteNonQuery(deleteQuery, new SQLiteParameter("@Nr", Nr));
+                        if (rowsDeleted > 0)
+                        {
+                            Console.WriteLine($"Auftrag Nr. {Nr} erfolgreich aus ActiveOrders gelöscht.");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Fehler: Auftrag Nr. {Nr} konnte nicht aus ActiveOrders gelöscht werden.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Fehler: Auftrag Nr. {Nr} konnte nicht in Orders aktualisiert werden.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Fehler beim Abschluss des Auftrags: {ex.Message}");
+                }
+            
+        }
+    
+
+
+    public void AuftragAblehnen()
         {
             Abgelehnt = true;
             Abgeschlossen = false;

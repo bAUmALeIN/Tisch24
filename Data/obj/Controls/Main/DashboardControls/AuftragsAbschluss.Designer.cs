@@ -29,34 +29,34 @@
         private void InitializeComponent()
         {
             this.panelAuftragsAbschluss = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxAbgabe = new System.Windows.Forms.TextBox();
+            this.textBoxForm = new System.Windows.Forms.TextBox();
+            this.textBoxFarbe = new System.Windows.Forms.TextBox();
+            this.textBoxMenge = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBoxAuftragsNr = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAuftragAbschliessen = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.panelAuftragsAbschluss.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelAuftragsAbschluss
             // 
-            this.panelAuftragsAbschluss.Controls.Add(this.textBox4);
-            this.panelAuftragsAbschluss.Controls.Add(this.textBox2);
-            this.panelAuftragsAbschluss.Controls.Add(this.textBox1);
-            this.panelAuftragsAbschluss.Controls.Add(this.textBox3);
+            this.panelAuftragsAbschluss.Controls.Add(this.textBoxAbgabe);
+            this.panelAuftragsAbschluss.Controls.Add(this.textBoxForm);
+            this.panelAuftragsAbschluss.Controls.Add(this.textBoxFarbe);
+            this.panelAuftragsAbschluss.Controls.Add(this.textBoxMenge);
             this.panelAuftragsAbschluss.Controls.Add(this.label3);
             this.panelAuftragsAbschluss.Controls.Add(this.label2);
             this.panelAuftragsAbschluss.Controls.Add(this.label1);
             this.panelAuftragsAbschluss.Controls.Add(this.label7);
             this.panelAuftragsAbschluss.Controls.Add(this.comboBoxAuftragsNr);
             this.panelAuftragsAbschluss.Controls.Add(this.label6);
-            this.panelAuftragsAbschluss.Controls.Add(this.button1);
+            this.panelAuftragsAbschluss.Controls.Add(this.buttonAuftragAbschliessen);
             this.panelAuftragsAbschluss.Controls.Add(this.label14);
             this.panelAuftragsAbschluss.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelAuftragsAbschluss.Location = new System.Drawing.Point(0, 0);
@@ -64,41 +64,41 @@
             this.panelAuftragsAbschluss.Size = new System.Drawing.Size(1683, 535);
             this.panelAuftragsAbschluss.TabIndex = 13;
             // 
-            // textBox4
+            // textBoxAbgabe
             // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(329, 411);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(255, 46);
-            this.textBox4.TabIndex = 26;
+            this.textBoxAbgabe.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAbgabe.Location = new System.Drawing.Point(329, 411);
+            this.textBoxAbgabe.Name = "textBoxAbgabe";
+            this.textBoxAbgabe.ReadOnly = true;
+            this.textBoxAbgabe.Size = new System.Drawing.Size(255, 46);
+            this.textBoxAbgabe.TabIndex = 26;
             // 
-            // textBox2
+            // textBoxForm
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(1243, 211);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(207, 46);
-            this.textBox2.TabIndex = 25;
+            this.textBoxForm.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxForm.Location = new System.Drawing.Point(1243, 211);
+            this.textBoxForm.Name = "textBoxForm";
+            this.textBoxForm.ReadOnly = true;
+            this.textBoxForm.Size = new System.Drawing.Size(207, 46);
+            this.textBoxForm.TabIndex = 25;
             // 
-            // textBox1
+            // textBoxFarbe
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(850, 211);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(207, 46);
-            this.textBox1.TabIndex = 24;
+            this.textBoxFarbe.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFarbe.Location = new System.Drawing.Point(850, 211);
+            this.textBoxFarbe.Name = "textBoxFarbe";
+            this.textBoxFarbe.ReadOnly = true;
+            this.textBoxFarbe.Size = new System.Drawing.Size(207, 46);
+            this.textBoxFarbe.TabIndex = 24;
             // 
-            // textBox3
+            // textBoxMenge
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(461, 211);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(207, 46);
-            this.textBox3.TabIndex = 23;
+            this.textBoxMenge.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMenge.Location = new System.Drawing.Point(461, 211);
+            this.textBoxMenge.Name = "textBoxMenge";
+            this.textBoxMenge.ReadOnly = true;
+            this.textBoxMenge.Size = new System.Drawing.Size(207, 46);
+            this.textBoxMenge.TabIndex = 23;
             // 
             // label3
             // 
@@ -150,6 +150,7 @@
             this.comboBoxAuftragsNr.Size = new System.Drawing.Size(207, 48);
             this.comboBoxAuftragsNr.TabIndex = 17;
             this.comboBoxAuftragsNr.Tag = "AuftragsNr";
+            this.comboBoxAuftragsNr.SelectedValueChanged += new System.EventHandler(this.comboBoxAuftragsNr_SelectedValueChanged);
             // 
             // label6
             // 
@@ -161,16 +162,17 @@
             this.label6.TabIndex = 16;
             this.label6.Text = "Auftrags Nummer:";
             // 
-            // button1
+            // buttonAuftragAbschliessen
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(636, 378);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(390, 112);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Abschließen";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonAuftragAbschliessen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAuftragAbschliessen.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAuftragAbschliessen.Location = new System.Drawing.Point(636, 378);
+            this.buttonAuftragAbschliessen.Name = "buttonAuftragAbschliessen";
+            this.buttonAuftragAbschliessen.Size = new System.Drawing.Size(390, 112);
+            this.buttonAuftragAbschliessen.TabIndex = 13;
+            this.buttonAuftragAbschliessen.Text = "Abschließen";
+            this.buttonAuftragAbschliessen.UseVisualStyleBackColor = true;
+            this.buttonAuftragAbschliessen.Click += new System.EventHandler(this.buttonAuftragAbschliessen_Click);
             // 
             // label14
             // 
@@ -199,16 +201,16 @@
 
         private System.Windows.Forms.Panel panelAuftragsAbschluss;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAuftragAbschliessen;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBoxAuftragsNr;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxForm;
+        private System.Windows.Forms.TextBox textBoxFarbe;
+        private System.Windows.Forms.TextBox textBoxMenge;
+        private System.Windows.Forms.TextBox textBoxAbgabe;
     }
 }

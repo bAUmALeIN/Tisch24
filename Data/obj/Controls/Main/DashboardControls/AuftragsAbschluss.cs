@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tischprojekt.Data.obj.dataObj;
+using System.Data.SQLite;
+using Tischprojekt.Data;
 
 namespace Tischprojekt.Data.obj.Userctrl
 {
@@ -15,6 +17,7 @@ namespace Tischprojekt.Data.obj.Userctrl
     {
         private static readonly object lockObj = new object();
         private static AuftragsAbschluss instance;
+        private _Auftrag auftrag;
         public AuftragsAbschluss()
         {
             InitializeComponent();
@@ -36,7 +39,7 @@ namespace Tischprojekt.Data.obj.Userctrl
             return instance;
         }
 
-        public void FillControls(int mode)
+        public void FillComboBoxAuftragsNr(int mode)
 
         {
             if (mode == 0)
@@ -50,45 +53,6 @@ namespace Tischprojekt.Data.obj.Userctrl
                         ComboBox comboBox = (ComboBox)c;
                         switch (comboBox.Tag)
                         {
-                            case "Farbe":
-                                dt = ConnectionManager.GetInstance().ExecuteQuery(SQLquerys.getAllFarben);
-                                if (dt != null)
-                                {
-                                    comboBox.Items.Clear();
-                                    foreach (DataRow dr in dt.Rows)
-                                    {
-                                        comboBox.Items.Add(dr["Farbe_1"].ToString());
-
-                                    }
-
-                                }
-                                break;
-                            case "Menge":
-                                dt = ConnectionManager.GetInstance().ExecuteQuery(SQLquerys.getAllMengen);
-                                if (dt != null)
-                                {
-                                    comboBox.Items.Clear();
-                                    foreach (DataRow dr in dt.Rows)
-                                    {
-                                        comboBox.Items.Add(dr["Menge_1"].ToString());
-
-                                    }
-
-                                }
-                                break;
-                            case "Form":
-                                dt = ConnectionManager.GetInstance().ExecuteQuery(SQLquerys.getAllFormen);
-                                if (dt != null)
-                                {
-                                    comboBox.Items.Clear();
-                                    foreach (DataRow dr in dt.Rows)
-                                    {
-                                        comboBox.Items.Add(dr["Form_1"].ToString());
-
-                                    }
-
-                                }
-                                break;
                             case "AuftragsNr":
                                 dt = ConnectionManager.GetInstance().ExecuteQuery(SQLquerys.getAllAktiveOrdersPOS);
                                 if (dt != null)
@@ -106,9 +70,6 @@ namespace Tischprojekt.Data.obj.Userctrl
                                 break;
 
                         }
-
-
-
                     }
                 }
             }
@@ -133,7 +94,42 @@ namespace Tischprojekt.Data.obj.Userctrl
             }
         }
 
+        private void buttonAuftragAbschliessen_Click(object sender, EventArgs e)
+        {
+
+            auftrag.AuftragAbschließen();
+            Dashboard.GetInstance().UpdateDGVs();
+            comboBoxAuftragsNr.SelectedIndex = -1;
+            textBoxAbgabe.Text = "";
+            textBoxFarbe.Text = "";
+            textBoxForm.Text = "";
+            textBoxMenge.Text = "";
+
+        }
+
+        private void comboBoxAuftragsNr_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (comboBoxAuftragsNr.SelectedIndex == -1) return;
+            auftrag = _Auftrag.GetAuftragByNr(Convert.ToInt32(comboBoxAuftragsNr.SelectedItem));
+            if (auftrag != null) {
+                textBoxAbgabe.Text = auftrag.Abgabe.ToString();
+                textBoxFarbe.Text = auftrag.Farbe;
+                textBoxForm.Text = auftrag.Form;
+                textBoxMenge.Text = auftrag.Menge.ToString();
+
+            }
+            else
+            {
+
+                return;
+            }
+            buttonAuftragAbschliessen.Enabled = true;
 
 
+
+
+
+
+        }
     }
 }

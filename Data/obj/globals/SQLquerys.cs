@@ -63,5 +63,10 @@ namespace Tischprojekt.Data.obj.dataObj
         public static String nextFreeNumberFromBestellungen = "SELECT COALESCE(MAX(BestellNr), 0) + 1 AS NextFreeNr FROM Bestellungen";
         public static String selectAllBestellNr = "SELECT BestellNr From Bestellungen";
         public static String getBestellungByBestellNr = "SELECT * FROM Bestellungen WHERE BestellNr = @BestellNr";
+
+        /// Auftragsabschluss
+
+
+        public static String getActiveOrderByNr = "SELECT * From ActiveOrders where Nr = @Nr";
     }
 }

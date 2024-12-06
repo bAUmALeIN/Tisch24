@@ -101,7 +101,7 @@ namespace Tischprojekt.Data.obj.Userctrl
             MainForm.ShowUserControl(AuftragsAbschluss.GetInstance(), panelContainer);
             if (Globals.hasConnection)
             {
-                AuftragsAbschluss.GetInstance().FillControls(0);
+                AuftragsAbschluss.GetInstance().FillComboBoxAuftragsNr(0);
 
             }
 
