@@ -56,6 +56,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.labelNoDbConnection = new System.Windows.Forms.Label();
             this.labelDBConnectionOK = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAktiveAuftraege)).BeginInit();
             this.panel1.SuspendLayout();
@@ -107,6 +108,7 @@
             this.dataGridViewAktiveAuftraege.ReadOnly = true;
             this.dataGridViewAktiveAuftraege.Size = new System.Drawing.Size(836, 100);
             this.dataGridViewAktiveAuftraege.TabIndex = 0;
+            this.dataGridViewAktiveAuftraege.DataSourceChanged += new System.EventHandler(this.dataGridViewAktiveAuftraege_DataSourceChanged);
             this.dataGridViewAktiveAuftraege.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAktiveAuftraege_CellContentClick);
             // 
             // buttonBestellen
@@ -198,6 +200,7 @@
             this.btnRetoure.TabIndex = 27;
             this.btnRetoure.Text = "RETOURE";
             this.btnRetoure.UseVisualStyleBackColor = true;
+            this.btnRetoure.Click += new System.EventHandler(this.btnRetoure_Click);
             // 
             // buttonAuftragsAbschluss
             // 
@@ -242,7 +245,7 @@
             // 
             this.panelContainer.BackColor = System.Drawing.Color.DarkGray;
             this.panelContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelContainer.Location = new System.Drawing.Point(13, 477);
+            this.panelContainer.Location = new System.Drawing.Point(13, 475);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1688, 525);
             this.panelContainer.TabIndex = 26;
@@ -373,11 +376,25 @@
             this.labelDBConnectionOK.Text = "Datenbank ok!";
             this.labelDBConnectionOK.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::Tischprojekt.Properties.Resources.icons8_aktualisieren_25;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Location = new System.Drawing.Point(1674, 16);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(26, 26);
+            this.button1.TabIndex = 25;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.labelDBConnectionOK);
             this.Controls.Add(this.labelNoDbConnection);
             this.Controls.Add(this.panel6);
@@ -433,5 +450,6 @@
         public System.Windows.Forms.Button buttonAuftragsAbschluss;
         public System.Windows.Forms.Button buttonAutragsannahme;
         public System.Windows.Forms.Button buttonWareneingang;
+        public System.Windows.Forms.Button button1;
     }
 }

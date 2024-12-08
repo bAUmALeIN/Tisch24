@@ -208,6 +208,7 @@ public class ConnectionManager
     {
         try
         {
+
             OpenConnection();
             using (var cmd = new SQLiteCommand(query, connection))
             {
@@ -219,13 +220,17 @@ public class ConnectionManager
                 if (parameters != null)
                 {
                     cmd.Parameters.AddRange(parameters);
+                    
                 }
 
+
+                
                 return cmd.ExecuteNonQuery();
             }
         }
         catch (Exception ex)
         {
+            Console.WriteLine($"Fehler beim Ausführen der Nicht-Abfrage: {ex.Message}");
             MessageBox.Show($"Fehler beim Ausführen der Nicht-Abfrage: {ex.Message}");
             return -1;
             //throw new Exception ($"Fehler beim Ausführen der Nicht-Abfrage: {ex.Message}");

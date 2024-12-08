@@ -16,6 +16,7 @@ using Tischprojekt.Data.obj.dataObj;
 using System.Data.Entity.Migrations.Sql;
 using System.Runtime.InteropServices;
 using System.Net.Configuration;
+using Tischprojekt.Data.obj.Controls.Main.Overview;
 namespace Tischprojekt
 {
     public partial class MainForm : Form
@@ -248,6 +249,12 @@ namespace Tischprojekt
         {
             MainForm.ShowUserControl(Einstellungen.GetInstance(), panelMainContainer);
             UpdateSettingsControls();
+        }
+
+        private void buttonOrders_Click(object sender, EventArgs e)
+        {
+            MainForm.ShowUserControl(Orders.GetInstance(), panelMainContainer);
+            Orders.GetInstance().FillDGV();
         }
     }
 }

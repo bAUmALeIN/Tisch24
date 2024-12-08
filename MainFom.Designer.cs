@@ -38,6 +38,7 @@ namespace Tischprojekt
             this.buttonMinimize = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.buttonOrders = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panelProgBar.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +49,7 @@ namespace Tischprojekt
             this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSettings.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSettings.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonSettings.Location = new System.Drawing.Point(11, 969);
+            this.buttonSettings.Location = new System.Drawing.Point(11, 958);
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Size = new System.Drawing.Size(162, 42);
             this.buttonSettings.TabIndex = 8;
@@ -59,6 +60,7 @@ namespace Tischprojekt
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Black;
+            this.panel4.Controls.Add(this.buttonOrders);
             this.panel4.Controls.Add(this.buttonDashboard);
             this.panel4.Controls.Add(this.buttonSettings);
             this.panel4.Location = new System.Drawing.Point(1722, 23);
@@ -92,7 +94,7 @@ namespace Tischprojekt
             // 
             // panelProgBar
             // 
-            this.panelProgBar.BackColor = System.Drawing.Color.Silver;
+            this.panelProgBar.BackColor = System.Drawing.Color.White;
             this.panelProgBar.Controls.Add(this.buttonMinimize);
             this.panelProgBar.Controls.Add(this.buttonClose);
             this.panelProgBar.Controls.Add(this.label7);
@@ -128,13 +130,27 @@ namespace Tischprojekt
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label7.Location = new System.Drawing.Point(826, 2);
+            this.label7.Location = new System.Drawing.Point(826, 1);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 17);
+            this.label7.Size = new System.Drawing.Size(84, 20);
             this.label7.TabIndex = 10;
             this.label7.Text = "Tisch24.de";
+            // 
+            // buttonOrders
+            // 
+            this.buttonOrders.FlatAppearance.BorderSize = 2;
+            this.buttonOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOrders.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOrders.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonOrders.Location = new System.Drawing.Point(11, 90);
+            this.buttonOrders.Name = "buttonOrders";
+            this.buttonOrders.Size = new System.Drawing.Size(162, 42);
+            this.buttonOrders.TabIndex = 10;
+            this.buttonOrders.Text = "Aufträge";
+            this.buttonOrders.UseVisualStyleBackColor = true;
+            this.buttonOrders.Click += new System.EventHandler(this.buttonOrders_Click);
             // 
             // MainForm
             // 
@@ -164,6 +180,7 @@ namespace Tischprojekt
         private System.Windows.Forms.Button buttonMinimize;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button buttonOrders;
     }
 }
 

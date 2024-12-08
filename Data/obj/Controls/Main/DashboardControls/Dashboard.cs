@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Tischprojekt.Data.obj.dataObj;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Data.SQLite;
+using Tischprojekt.Data.obj.Controls.Main.DashboardControls;
 
 namespace Tischprojekt.Data.obj.Userctrl
 {
@@ -105,6 +106,16 @@ namespace Tischprojekt.Data.obj.Userctrl
 
             }
 
+        }
+
+        private void btnRetoure_Click(object sender, EventArgs e)
+        {
+            MainForm.ShowUserControl(Retoure.GetInstance(), panelContainer);
+            if (Globals.hasConnection)
+            {
+                Retoure.GetInstance().FillComboBox();
+
+            }
         }
 
         private void dataGridViewAktiveAuftraege_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -225,5 +236,22 @@ namespace Tischprojekt.Data.obj.Userctrl
             }
         }
 
+        private void dataGridViewAktiveAuftraege_DataSourceChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridViewAktiveAuftraege.Rows) { 
+                var retoure = row.Cells["IstRetoure"].Value;
+                if (retoure != null) {
+                    int istRetoure = Convert.ToInt32(retoure);
+                    if(istRetoure == 1)
+                    {
+                        dataGridViewAktiveAuftraege.DefaultCellStyle.BackColor = Color.Red;
+
+                    }
+
+
+                }
+
+            }
+        }
     }
 }

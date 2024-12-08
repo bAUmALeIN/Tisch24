@@ -181,7 +181,7 @@ namespace Tischprojekt.Data.obj.Userctrl
                 {
 
                 new SQLiteParameter("@Nr", auftrag.Nr),
-                new SQLiteParameter("@DatumBeginn", auftrag.Beginn.ToString("yyyy-MM-dd HH:mm")),
+                new SQLiteParameter("@DatumBeginn", auftrag.Beginn.ToString("yyyy-MM-dd HH:mm:ss")),
                 new SQLiteParameter("@DatumAbgabe", auftrag.Abgabe.ToString("yyyy-MM-dd HH:mm")),
                 new SQLiteParameter("@Form", auftrag.Form),
                 new SQLiteParameter("@Farbe", auftrag.Farbe),
@@ -195,7 +195,7 @@ namespace Tischprojekt.Data.obj.Userctrl
                 new SQLiteParameter("@Menge",auftrag.Menge),
                 new SQLiteParameter("@Farbe",auftrag.Farbe),
                 new SQLiteParameter("@Form",auftrag.Form),
-                new SQLiteParameter("@AuftragsAnfang",auftrag.Beginn.ToString("yyyy-MM-dd HH:mm")),
+                new SQLiteParameter("@AuftragsAnfang",auftrag.Beginn.ToString("yyyy-MM-dd HH:mm:ss")),
                 new SQLiteParameter("@AuftragsEnde",auftrag.Abgabe.ToString("yyyy-MM-dd HH:mm")),
                 new SQLiteParameter("@Strafsekunden",auftrag.Strafzeit),
                 new SQLiteParameter("@Angenommen",auftrag.Angenommen),
@@ -220,8 +220,8 @@ namespace Tischprojekt.Data.obj.Userctrl
                 new SQLiteParameter("@Menge",auftrag.Menge),
                 new SQLiteParameter("@Farbe",auftrag.Farbe),
                 new SQLiteParameter("@Form",auftrag.Form),
-                new SQLiteParameter("@AuftragsAnfang",auftrag.Beginn.ToString("yyyy-MM-dd HH:mm")),
-                new SQLiteParameter("@AuftragsEnde",auftrag.Abgabe.ToString("yyyy-MM-dd HH:mm")),
+                new SQLiteParameter("@AuftragsAnfang",auftrag.Beginn.ToString("yyyy-MM-dd HH:mm:ss")),
+                new SQLiteParameter("@AuftragsEnde",auftrag.Abgabe.ToString("yyyy-MM-dd HH:mm:ss")),
                 new SQLiteParameter("@Strafsekunden",auftrag.Strafzeit),
                 new SQLiteParameter("@Angenommen",auftrag.Angenommen),
                 new SQLiteParameter("@Abgelehnt",auftrag.Abgelehnt),

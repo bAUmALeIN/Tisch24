@@ -110,7 +110,7 @@ namespace Tischprojekt.Data.obj.Userctrl
         private void comboBoxAuftragsNr_SelectedValueChanged(object sender, EventArgs e)
         {
             if (comboBoxAuftragsNr.SelectedIndex == -1) return;
-            auftrag = _Auftrag.GetAuftragByNr(Convert.ToInt32(comboBoxAuftragsNr.SelectedItem));
+            auftrag = _Auftrag.GetAuftragByNr(Convert.ToInt32(comboBoxAuftragsNr.SelectedItem),true);
             if (auftrag != null) {
                 textBoxAbgabe.Text = auftrag.Abgabe.ToString();
                 textBoxFarbe.Text = auftrag.Farbe;

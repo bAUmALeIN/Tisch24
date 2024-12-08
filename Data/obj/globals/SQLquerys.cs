@@ -29,6 +29,7 @@ namespace Tischprojekt.Data.obj.dataObj
         public static String getAllFarben = "SELECT * FROM Farben";
         public static String getAllMengen = "SELECT * FROM Mengen";
         public static String getAllFormen = "SELECT * FROM Formen";
+        public static String getAllOrders = "SELECT * FROM Orders";
 
 
         //INSERT - EINSTELLUNGEN
@@ -65,8 +66,43 @@ namespace Tischprojekt.Data.obj.dataObj
         public static String getBestellungByBestellNr = "SELECT * FROM Bestellungen WHERE BestellNr = @BestellNr";
 
         /// Auftragsabschluss
-
-
         public static String getActiveOrderByNr = "SELECT * From ActiveOrders where Nr = @Nr";
+
+        /// <summary>
+        /// Retoure
+        /// </summary>
+
+        public static String getAllClosedOrders = "SELECT * FROM Orders where Abgeschlossen = 1";
+
+        public static String getOrderByOrderNr = "SELECT * FROM Orders Where Nr = @Nr";
+
+        public static string insertIntoRetoure = @"
+    INSERT INTO Retoure (
+        OrderNr,
+        Menge,
+        Farbe,
+        Form,
+        AuftragsAnfangOrg,
+        AuftragsEndeOrg,
+        Strafsekunden,
+        Bemerkung,
+        AuftragsAnfangNeu,
+        AuftragsEndeNeu,
+        ZusatzMenge
+    )
+    VALUES (
+        @OrderNr,
+        @Menge,
+        @Farbe,
+        @Form,
+        @AuftragsAnfangOrg,
+        @AuftragsEndeOrg,
+        @Strafsekunden,
+        @Bemerkung,
+        @AuftragsAnfangOrg, -- Ursprüngliches Anfangsdatum
+        @AuftragsEndeOrg,   -- Ursprüngliches Enddatum
+        @ZusatzMenge
+    );
+";
     }
 }

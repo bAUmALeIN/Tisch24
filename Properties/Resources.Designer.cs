@@ -63,6 +63,16 @@ namespace Tischprojekt.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_aktualisieren_25 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-aktualisieren-25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_fenster_verkleinern_20 {
             get {
                 object obj = ResourceManager.GetObject("icons8_fenster_verkleinern_20", resourceCulture);

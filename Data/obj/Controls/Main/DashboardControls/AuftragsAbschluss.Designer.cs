@@ -41,6 +41,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.buttonAuftragAbschliessen = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
+            this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.panelAuftragsAbschluss.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -184,6 +185,14 @@
             this.label14.TabIndex = 12;
             this.label14.Text = "Auftragsabschluss";
             // 
+            // entityCommand1
+            // 
+            this.entityCommand1.CommandTimeout = 0;
+            this.entityCommand1.CommandTree = null;
+            this.entityCommand1.Connection = null;
+            this.entityCommand1.EnablePlanCaching = true;
+            this.entityCommand1.Transaction = null;
+            // 
             // AuftragsAbschluss
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,5 +221,6 @@
         private System.Windows.Forms.TextBox textBoxFarbe;
         private System.Windows.Forms.TextBox textBoxMenge;
         private System.Windows.Forms.TextBox textBoxAbgabe;
+        private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
     }
 }
