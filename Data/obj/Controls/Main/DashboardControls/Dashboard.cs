@@ -244,7 +244,12 @@ namespace Tischprojekt.Data.obj.Userctrl
                     int istRetoure = Convert.ToInt32(retoure);
                     if(istRetoure == 1)
                     {
-                        dataGridViewAktiveAuftraege.DefaultCellStyle.BackColor = Color.Red;
+                        row.DefaultCellStyle.BackColor = Color.Red;
+
+                    }
+                    if (istRetoure == 0)
+                    {
+                        row.DefaultCellStyle.BackColor = SystemColors.Control;
 
                     }
 
@@ -252,6 +257,11 @@ namespace Tischprojekt.Data.obj.Userctrl
                 }
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           UpdateDGVs();
         }
     }
 }

@@ -104,6 +104,7 @@ namespace Tischprojekt.Data.obj.Userctrl
             textBoxFarbe.Text = "";
             textBoxForm.Text = "";
             textBoxMenge.Text = "";
+            FillComboBoxAuftragsNr(0);
 
         }
 

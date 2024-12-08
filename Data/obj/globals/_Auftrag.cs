@@ -234,12 +234,11 @@ namespace Tischprojekt.Data.obj
         }
 
 
-        public void AuftragSetRetoure(int strafsekunden, int Zusatzmaterial,String Bemerkung)
+        public bool AuftragSetRetoure(int strafsekunden, int Zusatzmaterial,String Bemerkung)
         {
             if (Abgeschlossen)
             {
-                IstRetoure = true;
-                Abgeschlossen = false;
+
 
                 Console.WriteLine($"Auftrag Nr. {Nr} wird als Retoure eingetragen.");
 
@@ -259,7 +258,7 @@ namespace Tischprojekt.Data.obj
                         {
                             MessageBox.Show($"Nicht genug Bestand im Lager für {Zusatzmaterial} Einheiten von {Farbe}. Aktueller Bestand: {currentStock}",
                                             "Lagerbestand zu niedrig", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
+                            return false;
                         }
 
                         // Bestand aus dem Lager ausbuchen
@@ -285,7 +284,8 @@ namespace Tischprojekt.Data.obj
                         Console.WriteLine($"Fehler beim Prüfen oder Ausbuchen aus dem Lager: {ex.Message}");
                     }
                 }
-
+                IstRetoure = true;
+                Abgeschlossen = false;
                 // Update Orders - Setze Retoure, Abgeschlossen und Strafsekunden
                 string updateOrdersQuery = @"
             UPDATE Orders 
@@ -352,30 +352,36 @@ namespace Tischprojekt.Data.obj
                             {
                                 Console.WriteLine($"Auftrag Nr. {Nr} wurde erfolgreich in die Tabelle ActiveOrders eingetragen.");
                                 Dashboard.GetInstance().UpdateDGVs();
+                                return true;
                             }
                             else
                             {
                                 Console.WriteLine($"Fehler: Auftrag Nr. {Nr} konnte nicht in ActiveOrders eingetragen werden.");
+                                return false;
                             }
                         }
                         else
                         {
                             Console.WriteLine($"Fehler: Auftrag Nr. {Nr} konnte nicht in Retoure eingetragen werden.");
+                            return false;
                         }
                     }
                     else
                     {
                         Console.WriteLine($"Fehler: Auftrag Nr. {Nr} konnte nicht in Orders aktualisiert werden.");
+                        return false;
                     }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Fehler beim Verarbeiten der Retoure für Auftrag Nr. {Nr}: {ex.Message}");
+                    return false;
                 }
             }
             else
             {
                 Console.WriteLine($"Auftrag Nr. {Nr} ist nicht abgeschlossen und kann nicht als Retoure eingetragen werden.");
+                return false;
             }
         }
 

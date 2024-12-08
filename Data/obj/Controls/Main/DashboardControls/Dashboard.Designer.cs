@@ -109,7 +109,6 @@
             this.dataGridViewAktiveAuftraege.Size = new System.Drawing.Size(836, 100);
             this.dataGridViewAktiveAuftraege.TabIndex = 0;
             this.dataGridViewAktiveAuftraege.DataSourceChanged += new System.EventHandler(this.dataGridViewAktiveAuftraege_DataSourceChanged);
-            this.dataGridViewAktiveAuftraege.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAktiveAuftraege_CellContentClick);
             // 
             // buttonBestellen
             // 
@@ -388,6 +387,7 @@
             this.button1.Size = new System.Drawing.Size(26, 26);
             this.button1.TabIndex = 25;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Dashboard
             // 

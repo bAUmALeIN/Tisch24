@@ -21,6 +21,7 @@ namespace Tischprojekt.Data.obj.Controls.Main.DashboardControls
         private static readonly object lockObj = new object();
         private static Retoure instance;
         private _Auftrag aktullerAuftrag;
+        private bool neu = true;
         public Retoure()
         {
             InitializeComponent();
@@ -72,19 +73,59 @@ namespace Tischprojekt.Data.obj.Controls.Main.DashboardControls
 
         private void comboBoxAuftragsNr_SelectedValueChanged(object sender, EventArgs e)
         {
-            int AUftragNr = Convert.ToInt32(comboBoxAuftragsNr.SelectedItem);
-            aktullerAuftrag = _Auftrag.GetAuftragByNr(AUftragNr, false);
-            textBoxMenge.Text = aktullerAuftrag.Menge.ToString();
-            textBoxFarbe.Text = aktullerAuftrag.Farbe.ToString();
-            textBoxFom.Text  = aktullerAuftrag.Form.ToString();
-            textBoxAuftragsAnfang.Text = aktullerAuftrag.Beginn.ToString();
-            textBoxAuftragsEnde.Text = aktullerAuftrag.Abgabe.ToString();
-            aktullerAuftrag.Abgeschlossen = true;
+            if (neu)
+            {
+                int AUftragNr = Convert.ToInt32(comboBoxAuftragsNr.SelectedItem);
+                aktullerAuftrag = _Auftrag.GetAuftragByNr(AUftragNr, false);
+                textBoxMenge.Text = aktullerAuftrag.Menge.ToString();
+                textBoxFarbe.Text = aktullerAuftrag.Farbe.ToString();
+                textBoxFom.Text = aktullerAuftrag.Form.ToString();
+                textBoxAuftragsAnfang.Text = aktullerAuftrag.Beginn.ToString();
+                textBoxAuftragsEnde.Text = aktullerAuftrag.Abgabe.ToString();
+                aktullerAuftrag.Abgeschlossen = true;
+                neu = false;
+            }
+           
         }
         private void buttonAuftragRetoureBuchen_Click(object sender, EventArgs e)
         {
+            int sekunden = 0 , menge = 0;
+            try
+            {
+                if(textBoxStrafsekunden.Text != "")
+                {
+                    sekunden = Convert.ToInt32(textBoxStrafsekunden.Text);
 
-            aktullerAuftrag.AuftragSetRetoure(Convert.ToInt32(textBoxStrafsekunden.Text),Convert.ToInt32(textBoxZusatzMenge.Text),richTextBoxBemerkung.Text);
+                }
+                if(textBoxZusatzMenge.Text != "")
+                {
+                    menge = Convert.ToInt32(textBoxZusatzMenge.Text);
+
+                }
+
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+                return;
+            }
+
+            if (aktullerAuftrag.AuftragSetRetoure(sekunden, menge, richTextBoxBemerkung.Text)) {
+
+                textBoxFom.Text = "";
+                textBoxMenge.Text = "";
+                textBoxStrafsekunden.Text = "";
+                textBoxZusatzMenge.Text = "";
+                textBoxFarbe.Text = "";
+                textBoxAuftragsEnde.Text = "";
+                textBoxAuftragsAnfang.Text = "";
+                comboBoxAuftragsNr.SelectedIndex = -1;
+                neu = true;
+                
+
+            
+            }
+
+
 
 
            // @OrderNr,@Menge,@Farbe,@Form,@AuftragsAnfangOrg,@AuftragsEndeOrg,@Strafsekuden,@Bemerkung,@Zusatzmenge
