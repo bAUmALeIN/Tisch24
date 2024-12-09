@@ -56,10 +56,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>6100DAD8ED245A55034DB0AB60634CF86E94A7C6</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>BE0A4BCDE04494672C219DE56E7C9F0A32057074</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Tischprojekt_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>Tischprojekt_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -242,6 +242,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\Orders\" />
+    <Folder Include="Setup\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-löschen-20.png" />
